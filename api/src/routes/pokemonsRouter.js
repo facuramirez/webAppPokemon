@@ -9,19 +9,7 @@ router.get('/', async (req, res) => {
     var name = req.query.name;
     
     if(name === undefined) { // en el caso de NO haberle pasado ningun query (name)
-        // let pokemons = [];
-        // for(let i = 1; i < 41 ; i++) {
-        //     var resultado = await axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`)
-        //     data = resultado.data;
-        //     var type = data.types.map( type => type.type.name);
-           
-        //     pokemons.push({
-        //         name: data.name,
-        //         image: data.sprites.other.dream_world.front_default,
-        //         types: type
-        //     });
-        // }
-    
+       
         let pokemons = [];
 
         var data1 = await axios.get(`https://pokeapi.co/api/v2/pokemon`);
@@ -33,10 +21,6 @@ router.get('/', async (req, res) => {
         pokeUrl = [...results1, ...results2];
         var pokeUrl = pokeUrl.map( pokemon => pokemon.url);
         
-        // var pokeUrl = [];
-        // for(let i = 1 ; i < 41; i++) {
-        //     pokeUrl.push(`https://pokeapi.co/api/v2/pokemon/${i}`)
-        // }
         
         var pokeResponses = await Promise.all(pokeUrl.map( pokemon => axios.get(pokemon)));
         var data = await Promise.all(pokeResponses.map( response => {
@@ -150,11 +134,6 @@ router.post('/', async (req, res) => {
     
     var types = await Tipo.findAll({ where: { nombre: req.body.types } })
     await pokemon.addTipo(types);
-
-    /* for(let i = 0; i < req.body.types.length ; i++) {
-        var tipo = await Tipo.findOne({where: { nombre: req.body.types[i] }});
-        await pokemon.addTipo(tipo);
-    } */
        
     return res.send('<h1>Pokemon creado con éxito!</h1>');
         
