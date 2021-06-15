@@ -1,0 +1,70 @@
+.containerMenuOptions{
+    width: 160px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 30px;
+    box-shadow: 0px 0px 1px black, 0px 1px 1px black, 1px 2px 1px black, 2px 3px 1px black, 3px 4px 1px black;
+    background: linear-gradient(to bottom, #71d9ff 0%, rgba(58, 91, 170, 1) 50%, #0a759c 100%);
+}
+
+.menuOptions{
+    height: 350px;
+}
+
+.menuOptions h3{
+    border: 1px solid black;
+    box-shadow: 0px 0px 1px black, 0px 1px 1px black, 1px 2px 1px black, 2px 3px 1px black, 3px 4px 1px black;
+    text-align: center;    
+    background: rgba(253, 204, 5, 1);
+    padding: 5px;    
+}
+
+.menuOptions #filter{
+    margin-top: 30px;
+}
+
+.menuOptions h4{
+    margin-top: 20px;
+    background: white;
+    color: black;
+    border: 1px solid white;
+    border-radius: 20px;
+    width: 95%;
+    padding: 5px;
+    text-align: center;
+}
+
+.menuOptions h4:hover{
+    cursor: pointer;
+    box-shadow: 0px 0px 6px white;
+    border: 1px solid black;
+}
+
+.menuOptions .imageMenu{
+    text-align: center;    
+}
+
+.menuOptions #divImg{
+    text-align: center;
+    padding-top: 25px;
+    animation-duration: 500ms;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;    
+}
+
+@keyframes slidein {
+    from {
+      margin-left: 15%;
+      width: 20%
+    }
+  
+    to {
+      margin-left: 10%;
+      width: 20%;
+    }
+  }
+
+
+

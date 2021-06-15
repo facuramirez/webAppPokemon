@@ -1,0 +1,37 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.containerHome{
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.containerHome .navBarHome{
+    grid-column: 1 / 9;
+    height: 100px;
+    background: black;     
+}
+
+.containerHome .menuHome{
+    border: 1px solid black;
+    grid-column: 1 / 2;
+    grid-row: 2 / 5;    
+}
+
+.containerHome .searchHome{    
+    grid-column: 2 / 9;
+}
+
+.containerHome .pokeHome{
+    border: 1px solid black;
+    grid-column: 2 / 9;
+    grid-row: 3 / 5;
+}
+
+.buttonHome{
+    color: white;
+}

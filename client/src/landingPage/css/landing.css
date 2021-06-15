@@ -1,0 +1,53 @@
+/* .containerLanding{
+    background-image: url('../img/pokeNegro3.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+    
+}  */
+.containerLanding{
+    overflow-x: hidden;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.containerLanding a{
+    display: block;
+    margin: 0px auto;
+    font-size: 12px;
+    cursor: pointer;
+    background: #ccc;
+    width: 130px;
+    border-radius: 15px;
+    text-decoration: none;
+    margin-top: 15px;
+    text-shadow: 1px 1px black, 2px 1px gray, 4px 1px #ccc, 5px 1px white;
+    font-family: sans-serif;
+    padding: 1px;
+    box-shadow: 0px 0px 8px lightblue;
+    color: black;
+    opacity: 0.5;
+}
+
+.containerLanding a:hover{
+    box-shadow: 0px 0px 15px lightblue;
+    opacity: 0.8;
+}
+
+.imageLan{
+    width: 60%;
+}
+
+.imageLanTit{
+    display: block;
+    width: 400px;
+    margin: 0px auto;
+    background-color: black;
+}
+
+
+
+
+
+
