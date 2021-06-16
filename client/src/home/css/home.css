@@ -6,7 +6,7 @@
 .containerHome{
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: 0.6fr 0.5fr 1fr 1fr 1fr;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -17,18 +17,18 @@
 }
 
 .containerHome .menuHome{
-    border: 1px solid black;
-    grid-column: 1 / 2;
-    grid-row: 2 / 5;    
+    grid-column: 1 / 3;
+    grid-row: 2 / 5;
 }
 
-.containerHome .searchHome{    
-    grid-column: 2 / 9;
+.containerHome .searchHome{
+    grid-column: 3 / 9;
+    height: 70px;
 }
 
 .containerHome .pokeHome{
     border: 1px solid black;
-    grid-column: 2 / 9;
+    grid-column: 3 / 9;
     grid-row: 3 / 5;
 }
 

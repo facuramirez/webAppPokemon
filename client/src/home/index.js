@@ -3,12 +3,13 @@ import './css/home.css';
 import NavBar from './componentes/NavBar';
 import SearchBar from './componentes/SearchBar';
 import MenuOptions from './componentes/MenuOptions';
-import pxGray from '../img/pxgray.png';
+import pattern from '../img/pattern.png';
 
 function HomePage() {
 
-  document.body.style.background = "white";
-
+  document.body.style.backgroundImage = `url(${pattern})`;
+  document.body.style.backgroundColor = 'white';
+    
     return (
       <div className="containerHome">
               

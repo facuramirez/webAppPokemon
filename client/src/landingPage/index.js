@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 function LandingPage() {
     
-    document.body.style.background = 'black';
+    document.body.style.backgroundColor = 'black';
     
   return (
     <div className="containerLanding">
