@@ -127,7 +127,8 @@ router.post('/', async (req, res) => {
         fuerza: req.body.strength,
         defensa: req.body.defense,
         velocidad: req.body.speed,
-        altura: req.body.heigth
+        altura: req.body.heigth,
+        peso: req.body.weight
     })
     
     // Busco el tipo en la tabla "Tipo" y relaciono ambos registros colocandolos en la tabla intermedia
