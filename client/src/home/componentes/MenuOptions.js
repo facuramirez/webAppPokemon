@@ -2,8 +2,11 @@ import { useState } from 'react';
 import '../css/menuOptions.css';
 import ashPikachu from '../../img/ashPikachu2.png';
 import { BiChevronsRight } from 'react-icons/bi';
+import { FaArrowAltCircleRight } from 'react-icons/fa';
+import { modifyHome } from '../../globalState/Actions.js';
+import { connect } from 'react-redux';
 
-function MenuOptions() {
+function MenuOptions( {modifyHome, createPokemon}) {
   const [optMenu, setOptMenu] = useState({
     menu: true,
     filter: false,
@@ -24,17 +27,53 @@ function MenuOptions() {
       menu: false,
       [e.target.value]: optMenu[value] ? false:true
   
-    })    
+    })
+    
   }
+
+  const showCreate = (e) => {
+    modifyHome(true);
+    let button1 = document.querySelector('#filter');
+    let button2 = document.querySelector('#sort');
+        
+    button1.disabled = true;
+    button1.disabled = true;
+
+    button1.classList.add('buttonsMenuDisabled');
+    button2.classList.add('buttonsMenuDisabled');
+    button1.classList.remove('buttonsMenu');
+    button2.classList.remove('buttonsMenu');  
+  }
+
+  if(!createPokemon){
+    let button1 = document.querySelector('#filter');
+    let button2 = document.querySelector('#sort');
+    
+    if(button1 !== null){
+      button1.disabled = false;
+      button1.disabled = false;
+
+      button1.classList.remove('buttonsMenuDisabled');
+      button2.classList.remove('buttonsMenuDisabled');
+      button1.classList.add('buttonsMenu');
+      button2.classList.add('buttonsMenu'); 
+    }
+    
+    
+
+        
+  }
+
+
 
     return (
       <div className="containerMenuOptions">
           {optMenu.menu ? (
           <div className="menuOptions">
             <h3 id="optMenu">OPTIONS MENU</h3>
-            <button className="buttonsMenu" id="filter" value="filter" onClick={(e)=> filterButton(e)}>Filter</button>
-            <button className="buttonsMenu" id="sort" value="sort" onClick={(e)=> filterButton(e)}>Sort</button>
-            <button className="buttonsMenu" id="create">Create Pokemon</button>
+            <button className="buttonsMenu disabled" id="filter" value="filter" onClick={(e)=> filterButton(e)}>Filter</button>
+            <button className="buttonsMenu disabled" id="sort" value="sort" onClick={(e)=> filterButton(e)}>Sort</button>
+            <button className="buttonsMenu" id="create" onClick={(e)=> showCreate(e)}>Create Pokemon <FaArrowAltCircleRight /></button>
             <div id="divImg"><img className="imageMenu" src={ashPikachu} /> </div>    
           </div>
           ):null
@@ -54,7 +93,7 @@ function MenuOptions() {
             <label className="subtitles subCr" for="Created">Created</label>
 
             <span><BiChevronsRight className="itemIcon itemTwo"/></span>
-            <label className="subtitles" id="labelTypes">Types:</label>
+            <label className="subtitles" id="labelTypes">Select Types:</label>
             <br/>
             <div className="typesGrid">
               <input className="inputCheckBox" type="checkbox" />
@@ -110,22 +149,27 @@ function MenuOptions() {
               <span><BiChevronsRight className="itemIcon itemOne"/></span>
 
               <div className="sortGrid">
-                <input type="radio" className="radio radioSort" name="choice" value="AZ"/>
-                <label className="subtitles subAll" for="AZ">Alfabético (ascendente)</label>
-                <input type="radio" className="radio radioSort" name="choice" value="ZA" />
-                <label className="subtitles subOr" for="ZA">Alfabético (descendente)</label>
-                <input type="radio" className="radio radioSort" name="choice" value="FuerzaA" />
-                <label className="subtitles subCr" for="FuerzaA">Fuerza (ascendente)</label>
-                <input type="radio" className="radio radioSort" name="choice" value="FuerzaD" />
-                <label className="subtitles subCr" for="FuerzaD">Fuerza (descendente)</label>
-                <input type="radio" className="radio radioSort" name="choice" value="PesoA" />
-                <label className="subtitles subCr" for="PesoA">Peso (ascendente)</label>
-                <input type="radio" className="radio radioSort" name="choice" value="PesoD" />
-                <label className="subtitles subCr" for="PesoD">Peso (descendente)</label>
-                <input type="radio" className="radio radioSort" name="choice" value="AlturaA" />
-                <label className="subtitles subCr" for="AlturaA">Altura (ascendente)</label>
-                <input type="radio" className="radio radioSort" name="choice" value="AlturaD" />
-                <label className="subtitles subCr" for="AlturaD">Altura (descendente)</label>
+                <input type="radio" className="radio radioSort" name="choice1" value="Asc"/>
+                <label className="subtitles labelSort" for="Asc">Ascending </label>
+                <input type="radio" className="radio radioSort" name="choice1" value="Desc"/>
+                <label className="subtitles labelSort" for="Desc">Descending </label>
+              </div>
+
+              <span><BiChevronsRight className="itemIcon itemOne"/></span>
+
+              <div className="sortGrid">
+                <input type="radio" className="radio radioSort" name="choice2" value="AZ"/>
+                <label className="subtitles labelSort" for="AZ">Alphabetical </label>
+                
+                <input type="radio" className="radio radioSort" name="choice2" value="Fuerza" />
+                <label className="subtitles labelSort" for="Fuerza">Strength</label>
+                
+                <input type="radio" className="radio radioSort" name="choice2" value="Peso" />
+                <label className="subtitles labelSort" for="Peso">Weigth</label>
+               
+                <input type="radio" className="radio radioSort" name="choice2" value="Altura" />
+                <label className="subtitles labelSort" for="Altura">Heigth</label>
+               
               </div>
 
               <button className="buttonsFilter buttonF1 butSort1" value="back" onClick={(e)=> filterButton(e)}>Back</button>
@@ -137,5 +181,7 @@ function MenuOptions() {
        
       );
   }
+
+  const mapStateToProps = ({createPokemon}) => ({createPokemon});
   
-  export default MenuOptions;
+  export default connect(mapStateToProps, {modifyHome})(MenuOptions);

@@ -1,0 +1,130 @@
+.containerCreatePokemon{
+    display: grid;
+    height: 530px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 5fr 2fr;
+    border: 1px solid orange;
+    width: 700px;
+    margin: 0px auto;
+    border: 1px solid black;
+    border-radius: 20px;
+    box-shadow: 0px 0px 1px black, 0px 1px 1px black, 1px 2px 1px black, 2px 3px 1px black, 3px 4px 1px black;
+    background-image: url('../../img/pxgray.png');
+    background-color: gray;
+    margin-right: 200px;
+}
+
+
+#titleCreate{
+    grid-column: 1 / 3;
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 280px;
+    text-align: center;
+    margin-left: 35%;
+    background: linear-gradient(to bottom, #71d9ff 0%, #0a759c 100%);
+    padding: 10px;
+    margin-top: 20px;
+    box-shadow: 0px 0px 5px white;
+    text-shadow: 0px 0px 5px white;
+}
+
+.containerCreatePokemon .sg1{ 
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    grid-gap: 10px;    
+    font-size: 18px;
+    margin-top: 30px;
+    margin-left: 40px;
+}
+
+.sg1 input{
+    width: 100%;
+    border-radius: 20px;
+    outline: none;
+    padding-left: 8px;
+    font-size: 13px;
+    height: 30px;
+    box-shadow: 0px 0px 5px black inset;
+}
+
+.sg1 label,
+.sg2 #titleTypes{
+    margin-left: 45px;
+    padding-top: 3px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 50%;
+    background: lightblue;
+}
+
+.sg1 label{
+    padding-top: 7px;
+    width: 100%;
+    margin-right: 15px;
+    margin-left: 0px;
+    box-shadow: 0px 0px 8px black inset;
+}
+
+.containerCreatePokemon .sg2 .typesGrid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5px;
+    margin-right: 60px;
+}
+
+.containerCreatePokemon .sg2 #titleTypes{
+    grid-column: 1 / 5;
+    font-size: 18px;
+    margin-left: 120px;
+    width: 100px;
+    margin-top: 25px;
+    padding-top: 5px;
+    box-shadow: 0px 0px 8px black inset;
+}
+
+.containerCreatePokemon .sg2 .inputCheckBox{
+    margin-left: 50px;
+    margin-top: 7px;
+}
+
+.containerCreatePokemon .sg2 .typesLabels{
+    background: #ccc;
+    border-radius: 20px;
+    text-align: center;
+    width: 80px;
+    border: 1px solid black;
+    margin-top: 3px;
+}
+
+
+.containerCreatePokemon .buttonsGrid{
+    grid-column: 1 / 3;
+    margin: 0px auto;
+}
+
+.buttonsGrid .buttonsFilter{    
+    padding: 6px;
+    background: linear-gradient(to bottom, #71d9ff 0%, #0a759c 100%);
+    border-radius: 20px;
+    border: 1px solid lightblue;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 35px;
+    cursor: pointer;
+    border: 1px solid black;
+    padding: 10px;
+    color: black;
+}
+
+.buttonsGrid .buttonsFilter:hover{
+    border: 1px solid white;
+    box-shadow: 0px 0px 8px white;
+}
+
+.sg2 input[type="checkbox"]{
+    width: 16px;
+    height: 16px;
+}

@@ -41,12 +41,27 @@
     transition: all 200ms;
 }
 
+.menuOptions .buttonsMenuDisabled{
+    margin-top: 20px;
+    background: gray;
+    color: white;
+    border: 1px solid white;
+    border-radius: 20px;
+    width: 80%;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 5px;
+    cursor: not-allowed;
+    transition: all 200ms;
+}
+
 .menuOptions .buttonsMenu:hover{
     margin-left: 23px;
     cursor: pointer;
     box-shadow: 0px 0px 4px white;
     border: 1px solid black;
     background: rgba(255, 255, 255, 0.774);
+    /* transform: scale(1.20); */
 }
 
 .menuOptions .imageMenu{
@@ -199,4 +214,9 @@
 
 .menuOptions .butSort1{
     margin-top: 160px;
+}
+
+.labelSort{
+    text-align: center;
+    width: 85%;
 }

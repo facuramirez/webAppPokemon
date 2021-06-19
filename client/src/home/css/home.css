@@ -6,7 +6,7 @@
 .containerHome{
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: 0.6fr 0.5fr 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 0.3fr 1fr 1fr 1fr;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -26,8 +26,9 @@
     height: 70px;
 }
 
-.containerHome .pokeHome{
-    border: 1px solid black;
+.containerHome .pokeHome,
+.containerHome .createPokeHome{
+    
     grid-column: 3 / 9;
     grid-row: 3 / 5;
 }
