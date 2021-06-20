@@ -1,10 +1,14 @@
-import './css/pokemonCard.css';
+import '../css/pokemonCard.css';
 
-function PokemonCard() {
+function PokemonCard({name, image, types}) {
    
     return (
       <div className="containerPokemonCard">
-        <h1>Soy Pokemon Card</h1>              
+        <h1>{name}</h1>
+        <img className="image" src={image}/>
+        {
+          types.map( type => <h3 key={type}>{type}</h3>)
+        }
       </div> 
       );
   }

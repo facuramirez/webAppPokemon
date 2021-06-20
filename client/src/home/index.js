@@ -1,17 +1,24 @@
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 import './css/home.css';
 import NavBar from './componentes/NavBar';
 import SearchBar from './componentes/SearchBar';
 import MenuOptions from './componentes/MenuOptions';
 import CreatePokemon from './componentes/CreatePokemon';
+import Pokemons from './componentes/Pokemons';
 import pattern from '../img/pattern.png';
 import { connect } from 'react-redux';
+import { getPokemons } from '../globalState/Actions.js';
 
 
-function HomePage({createPokemon}) {
+function HomePage({createPokemon, allPokemons, getPokemons}) {
 
   document.body.style.backgroundImage = `url(${pattern})`;
   document.body.style.backgroundColor = '#ccc';
+
+  useEffect( () => {
+    getPokemons();    
+  },[])
     
     return (
       <div className="containerHome">
@@ -19,7 +26,7 @@ function HomePage({createPokemon}) {
         <nav className="navBarHome"><NavBar /></nav>
         <section className="menuHome"><MenuOptions /></section>
         <section className="searchHome"><SearchBar /></section>
-        {!createPokemon ? (<section className="pokeHome">ALL POKEMONS</section>):
+        {!createPokemon ? (<section className="pokeHome"><Pokemons pokemons={allPokemons}/></section>):
         (<section className="createPokeHome"><CreatePokemon /></section>)
         }     
               
@@ -27,7 +34,7 @@ function HomePage({createPokemon}) {
       );
   }
 
-  const mapStateToProps = ({ createPokemon }) => ({ createPokemon })
+  const mapStateToProps = ({ createPokemon, allPokemons }) => ({ createPokemon, allPokemons })
 
 
-  export default connect(mapStateToProps)(HomePage);
+  export default connect(mapStateToProps, { getPokemons })(HomePage);
