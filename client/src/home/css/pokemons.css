@@ -49,3 +49,7 @@
     padding-left: 15px;
     text-shadow: 0px 0px 8px white;
 }
+
+.containerPokemons #containerLoading .vacio{
+    width: 100% !important;
+}

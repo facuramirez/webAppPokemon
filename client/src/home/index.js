@@ -17,7 +17,7 @@ function HomePage({createPokemon, allPokemons, getPokemons}) {
   document.body.style.backgroundColor = '#ccc';
 
   useEffect( () => {
-    getPokemons();    
+    if (allPokemons.length === 0) getPokemons();    
   },[])
     
     return (

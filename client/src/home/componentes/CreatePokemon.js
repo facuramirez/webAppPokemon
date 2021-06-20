@@ -56,8 +56,7 @@ function CreatePokemon({modifyHome}) {
 
   
   const volver = () => {
-    window.location.reload();
-    //setTimeout( ()=> modifyHome(false), 10000);
+    window.location.reload();    
   }
 
   const spanError = {

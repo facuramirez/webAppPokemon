@@ -1,10 +1,16 @@
 import './css/landing.css';
+import { useEffect } from 'react';
 import pokeLanding from '../img/pokeLanding.png';
 import pokeTitulo from '../img/pokeTitulo.jpg';
 import { Link } from 'react-router-dom';
+import { getPokemons } from '../globalState/Actions.js';
+import { connect } from 'react-redux';
 
-function LandingPage() {
-    
+function LandingPage({ getPokemons }) {
+    useEffect( () => {
+        getPokemons();
+      },[])
+      
     document.body.style.backgroundColor = 'black';
     
   return (
@@ -20,4 +26,6 @@ function LandingPage() {
     );
 }
 
-export default LandingPage;
+// const mapStateToProps = ({ createPokemon, allPokemons }) => ({ createPokemon, allPokemons })
+
+  export default connect(null, { getPokemons })(LandingPage);
