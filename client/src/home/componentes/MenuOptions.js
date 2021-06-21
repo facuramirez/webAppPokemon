@@ -1,12 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../css/menuOptions.css';
 import ashPikachu from '../../img/ashPikachu2.png';
 import { BiChevronsRight } from 'react-icons/bi';
 import { FaArrowAltCircleRight } from 'react-icons/fa';
-import { modifyHome, filterPokemons, clearPokemons } from '../../globalState/Actions.js';
+import { modifyHome, filterPokemons, clearPokemons, sortPokemons } from '../../globalState/Actions.js';
 import { connect } from 'react-redux';
 
-function MenuOptions( {modifyHome, filterPokemons, clearPokemons, createPokemon}) {
+
+function MenuOptions( {modifyHome, filterPokemons, clearPokemons, createPokemon, sortPokemons, allPokemons}) {
+     
   const [optMenu, setOptMenu] = useState({
     menu: true,
     filter: false,
@@ -77,10 +79,20 @@ function MenuOptions( {modifyHome, filterPokemons, clearPokemons, createPokemon}
     }
     
     clearPokemons();
-    filterPokemons(all, or, cr, arrayNames);
-        
+    filterPokemons(all, or, cr, arrayNames);        
  
-  } // fin function applyFilters
+  }
+
+  
+  
+  const applySorts = (e) => {
+    
+    var radio1 = document.querySelectorAll('.r1');
+    var radio2 = document.querySelectorAll('.r2');
+    
+    sortPokemons(allPokemons, radio1, radio2);
+
+  } // fin function applySorts
 
   
 
@@ -167,31 +179,31 @@ function MenuOptions( {modifyHome, filterPokemons, clearPokemons, createPokemon}
               <span><BiChevronsRight className="itemIcon itemOne"/></span>
 
               <div className="sortGrid">
-                <input type="radio" className="radio radioSort" name="choice1" value="Asc"/>
+                <input type="radio" className="radio radioSort r1" name="choice1" value="Asc"/>
                 <label className="subtitles labelSort" htmlFor="Asc">Ascending </label>
-                <input type="radio" className="radio radioSort" name="choice1" value="Desc"/>
+                <input type="radio" className="radio radioSort r1" name="choice1" value="Desc"/>
                 <label className="subtitles labelSort" htmlFor="Desc">Descending </label>
               </div>
 
               <span><BiChevronsRight className="itemIcon itemOne"/></span>
 
               <div className="sortGrid">
-                <input type="radio" className="radio radioSort" name="choice2" value="AZ"/>
+                <input type="radio" className="radio radioSort r2" name="choice2" value="AZ"/>
                 <label className="subtitles labelSort" htmlFor="AZ">Alphabetical </label>
                 
-                <input type="radio" className="radio radioSort" name="choice2" value="Fuerza" />
+                <input type="radio" className="radio radioSort r2" name="choice2" value="Fuerza" />
                 <label className="subtitles labelSort" htmlFor="Fuerza">Strength</label>
                 
-                <input type="radio" className="radio radioSort" name="choice2" value="Peso" />
+                <input type="radio" className="radio radioSort r2" name="choice2" value="Peso" />
                 <label className="subtitles labelSort" htmlFor="Peso">Weigth</label>
                
-                <input type="radio" className="radio radioSort" name="choice2" value="Altura" />
+                <input type="radio" className="radio radioSort r2" name="choice2" value="Altura" />
                 <label className="subtitles labelSort" htmlFor="Altura">Heigth</label>
                
               </div>
 
               <button className="buttonsFilter buttonF1 butSort1" value="back" onClick={(e)=> filterButton(e)}>Back</button>
-              <button className="buttonsFilter buttonF2 butSort2" >Apply changes</button>
+              <button className="buttonsFilter buttonF2 butSort2" onClick={ (e)=> applySorts(e)}>Apply changes</button>
             </div>
             ):null
           }
@@ -200,6 +212,6 @@ function MenuOptions( {modifyHome, filterPokemons, clearPokemons, createPokemon}
       );
   }
 
-  const mapStateToProps = ({createPokemon}) => ({createPokemon});
+  const mapStateToProps = ({createPokemon, allPokemons}) => ({createPokemon, allPokemons});
   
-  export default connect(mapStateToProps, {modifyHome, filterPokemons, clearPokemons})(MenuOptions);
+  export default connect(mapStateToProps, {modifyHome, filterPokemons, clearPokemons, sortPokemons})(MenuOptions);

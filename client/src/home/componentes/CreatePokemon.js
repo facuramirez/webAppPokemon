@@ -52,8 +52,6 @@ function CreatePokemon({modifyHome}) {
     setInputs({...inputs, [name]: value});
   
   }
-
-
   
   const volver = () => {
     window.location.reload();    

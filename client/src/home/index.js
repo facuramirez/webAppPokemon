@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import './css/home.css';
 import NavBar from './componentes/NavBar';
@@ -17,16 +16,16 @@ function HomePage({createPokemon, allPokemons, getPokemons}) {
   document.body.style.backgroundColor = '#ccc';
 
   useEffect( () => {
-    if (allPokemons.length === 0) getPokemons();    
+    if (allPokemons.length === 0) getPokemons();
   },[])
-    
+  
     return (
       <div className="containerHome">
               
         <nav className="navBarHome"><NavBar /></nav>
         <section className="menuHome"><MenuOptions /></section>
         <section className="searchHome"><SearchBar /></section>
-        {!createPokemon ? (<section className="pokeHome"><Pokemons pokemons={allPokemons}/></section>):
+        {!createPokemon ? (<section className="pokeHome"><Pokemons/></section>):
         (<section className="createPokeHome"><CreatePokemon /></section>)
         }     
               

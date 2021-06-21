@@ -3,6 +3,7 @@ export const GET_POKEMONS = "GET_POKEMONS";
 export const POKEMON_CREATE = "POKEMON_CREATE";
 export const POKEMON_FILTER = "POKEMON_FILTER";
 export const POKEMON_CLEAR  = "POKEMON_CLEAR";
+export const POKEMON_SORT   = "POKEMON_SORT";
 
 export function getPokemons(){
     return function(dispatch){
@@ -47,9 +48,7 @@ export function filterPokemons(all, or, cr, arrayNames){
                     }
                 }
             }
-            console.log('1', arreglo);
-            console.log('2', filterPokemons)
-// -------------------------
+
             dispatch({ type: POKEMON_FILTER, payload: arreglo.length > 0 ? arreglo:filterPokemons});
         })
         .catch(error => console.error('No se pudieron filtrar los pokemons'))
@@ -58,4 +57,47 @@ export function filterPokemons(all, or, cr, arrayNames){
 
 export function clearPokemons(){
     return { type: POKEMON_CLEAR, payload: []}
+}
+
+export function sortPokemons(allPokemons, radio1, radio2){
+    
+    if(radio2[0].checked) {
+        if(radio1[0].checked || (!radio1[0].checked && !radio1[1].checked)){
+            allPokemons.sort(function(a, b) {
+                if(a.name > b.name) return 1
+                if(a.name < b.name) return -1
+                return 0;
+            }
+        )} else if(radio1[1].checked){
+            allPokemons.sort(function(a, b) {
+                if(a.name < b.name) return 1
+                if(a.name > b.name) return -1
+                return 0;
+            }
+        )}
+    }
+
+    if(radio2[1].checked) {
+        if(radio1[0].checked || (!radio1[0].checked && !radio1[1].checked)){
+            allPokemons.sort(function(a, b) {
+                if(a.strength > b.strength) return 1
+                if(a.strength < b.strength) return -1
+                return 0;
+            }
+        )} else if(radio1[1].checked){
+            allPokemons.sort(function(a, b) {
+                if(a.strength < b.strength) return 1
+                if(a.strength > b.strength) return -1
+                return 0;
+            }
+        )}
+    }
+
+          
+    // allPokemons = allPokemons.pop();
+    // console.log('pop', allPokemons);
+    // allPokemons = [allPokemons]
+    allPokemons = allPokemons.map( (pokemon) => pokemon);
+
+    return { type: POKEMON_SORT, payload: allPokemons }
 }

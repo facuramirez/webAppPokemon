@@ -1,4 +1,4 @@
-import { POKEMON_CREATE, GET_POKEMONS, POKEMON_FILTER, POKEMON_CLEAR } from './Actions.js';
+import { POKEMON_CREATE, GET_POKEMONS, POKEMON_FILTER, POKEMON_CLEAR, POKEMON_SORT } from './Actions.js';
 
 const initialState = {
     createPokemon: false,
@@ -22,6 +22,10 @@ function reducer(state = initialState, action){
         case POKEMON_CLEAR: return {
             ...state,
             allPokemons: []
+        }
+        case POKEMON_SORT: return {
+            ...state,
+            allPokemons: action.payload
         }
         default: return state;
     }
