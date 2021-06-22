@@ -1,22 +1,57 @@
 import '../css/pokemons.css';
-import { useEffect } from 'react';
+import { useState } from 'react';
+import PokemonDetail from './PokemonDetail.js'
 import PokemonCard from './PokemonCard';
 import pokeBola from '../../img/pokebolaBg.png';
+import Pagination from './Pagination.js';
 import { connect } from 'react-redux';
 
-function Pokemons({allPokemons}) {
+function Pokemons({allPokemons, detail}) {
     var contador = 0;
-      // useEffect( () => {
-      //   console.log('INICIO POKEMONS', allPokemons);
-      // },[])
+    
+    var [currentPage, setCurrentPage] = useState(1);
+    var [pokemonsPerPage, setPokemonsPerPage] = useState(12);
 
+    var indexOfLastPost = currentPage * pokemonsPerPage;
+    var indexOfFirstPost = indexOfLastPost - pokemonsPerPage;
+    var pokemonsPage = [];
+    pokemonsPage = allPokemons.slice(indexOfFirstPost, indexOfLastPost);
+
+    const paginate = (pageNumber) => {
+      setCurrentPage(pageNumber)
+    }
+    
+    
     return (
       <div className="containerPokemons">
-
+         
           {
-            (allPokemons.length > 0 && allPokemons[0] !== 'Vacio') && allPokemons.map( (pokemon) => 
-            <PokemonCard key={pokemon.name} name={pokemon.name} image={pokemon.image} types={pokemon.types} poke={contador++}/> )
-          }            
+            (allPokemons.length > 0 && allPokemons[0] !== 'Vacio' && !detail) && 
+            <Pagination 
+              pokemonsPerPage={pokemonsPerPage} 
+              totalPokemons={allPokemons.length}
+              paginate={paginate}  
+            />
+          }
+
+          <section className="pokemonDetail">
+            {
+              (detail) && <PokemonDetail nameDet={detail} 
+              /> 
+            }
+          </section>
+
+          <section className="flexPokemons">
+          {          
+            (allPokemons.length > 0 && allPokemons[0] !== 'Vacio' && !detail) && pokemonsPage.map( (pokemon) => 
+            <PokemonCard 
+              key={pokemon.name} 
+              name={pokemon.name} 
+              image={pokemon.image} 
+              types={pokemon.types} 
+              poke={contador++}/> )
+          }
+          </section>            
           {
             (allPokemons.length === 0) &&
             (<div id="containerLoading">
@@ -39,6 +74,6 @@ function Pokemons({allPokemons}) {
   }
 
   
-  const mapStateToProps = ({allPokemons}) => ({allPokemons});
+  const mapStateToProps = ({allPokemons, detail }) => ({allPokemons, detail});
   
   export default connect(mapStateToProps)(Pokemons);

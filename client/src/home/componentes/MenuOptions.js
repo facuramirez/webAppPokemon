@@ -34,7 +34,11 @@ function MenuOptions( {modifyHome, filterPokemons, clearPokemons, createPokemon,
   }
 
   const showCreate = (e) => {
+    
+    window.scrollTo(0, 0);
+    
     modifyHome(true);
+    
     let button1 = document.querySelector('#filter');
     let button2 = document.querySelector('#sort');
         
@@ -44,7 +48,8 @@ function MenuOptions( {modifyHome, filterPokemons, clearPokemons, createPokemon,
     button1.classList.add('buttonsMenuDisabled');
     button2.classList.add('buttonsMenuDisabled');
     button1.classList.remove('buttonsMenu');
-    button2.classList.remove('buttonsMenu');  
+    button2.classList.remove('buttonsMenu');
+  
   }
 
   if(!createPokemon){
@@ -77,7 +82,7 @@ function MenuOptions( {modifyHome, filterPokemons, clearPokemons, createPokemon,
         arrayNames.push(checkBox[i].name);
       }
     }
-    
+    window.scrollTo(0, 0);
     clearPokemons();
     filterPokemons(all, or, cr, arrayNames);        
  

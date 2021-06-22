@@ -54,7 +54,8 @@ function CreatePokemon({modifyHome}) {
   }
   
   const volver = () => {
-    window.location.reload();    
+    window.location.reload();
+    window.scrollTo(0, 0);
   }
 
   const spanError = {
