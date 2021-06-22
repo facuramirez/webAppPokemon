@@ -18,8 +18,7 @@ function PokemonDetail({ nameDet, detailData, detailPokemon }) {
         window.location.href = "http://localhost:3000/home";
         window.scrollTo(0, 0);
     }
-    console.log('DETAILLLLLLLLLL', detailPokemon);
-    console.log('IMAGEEEEEEEEEEEEEE', image);
+   
     return (
         <div className="containerPokemonDetail">
             {

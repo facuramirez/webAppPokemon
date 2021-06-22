@@ -139,6 +139,7 @@ export function detailData(name){
     return function(dispatch){
         return axios.get(`http://localhost:3001/pokemons/${name}`)
         .then( response => {
+            
             dispatch({ type: POKEMON_DATA_DETAIL, payload: response.data })
         })
         .catch(error => console.error('No se pudo obtener el detalle del pokemon'))        
@@ -156,7 +157,6 @@ export function searchPokemon(value){
         return axios.get(`https://pokeapi.co/api/v2/pokemon/${value}`)
         .then( response => {
             let types = response.data.types.map( (type) => type.type.name);
-
             
             let pokemon = [{
                 image: (response.data.sprites.other.dream_world.front_default === null) ?
@@ -173,8 +173,7 @@ export function searchPokemon(value){
                 height: response.data.height,
                 weight: response.data.weight
             }];
-            
-            console.log(pokemon);
+                        
             dispatch({ type: POKEMON_SEARCH, payload: pokemon })
         })
         .catch(error => console.error('No se pudo obtener el detalle del pokemon'))
