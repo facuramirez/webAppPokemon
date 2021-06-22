@@ -2,7 +2,6 @@ const { Router } = require('express');
 const axios = require('axios').default;
 const { Pokemon, Tipo, pokemon_tipo } = require('../db.js');
 const { conn } = require('../db.js');
-
 const router = Router();
 
 router.get('/', async (req, res) => {
@@ -28,7 +27,13 @@ router.get('/', async (req, res) => {
            
             pokemons.push({
                 name: response.data.name,
-                image: response.data.sprites.other.dream_world.front_default,
+                image: (response.data.sprites.other.dream_world.front_default === null) ?
+                        response.data.sprites.other['official-artwork'].front_default
+                        :
+                        response.data.sprites.other.dream_world.front_default,
+                strength: response.data.stats[1].base_stat,
+                weight: response.data.weight,
+                height: response.data.height,
                 types: type
             });
         }));
@@ -39,7 +44,10 @@ router.get('/', async (req, res) => {
         pokeDB = pokeDB.map( datos => {
             var pokemon = {
                 name: datos.nombre,
-                image: 'imagen.jpg',
+                image: 'image.jpg',
+                strength: datos.fuerza,
+                weight: datos.peso,
+                height: datos.altura,
                 types: datos.tipos.map( tipo => tipo.nombre)
             }
 
@@ -54,7 +62,10 @@ router.get('/', async (req, res) => {
             var data = resultado.data;
 
             var pokemonObj = {
-                image: data.sprites.other.dream_world.front_default,
+                image: (data.sprites.other.dream_world.front_default === null) ?
+                        data.sprites.other['official-artwork'].front_default
+                        :
+                        data.sprites.other.dream_world.front_default,
                 name: data.name,
                 tipos: data.types.map( type => type.type.name),
                 id: data.id,
@@ -88,7 +99,10 @@ router.get('/:id', async (req, res) => {
         var data = resultado.data;
 
         var pokemonObj = {
-            image: data.sprites.other.dream_world.front_default,
+            image: (data.sprites.other.dream_world.front_default === null) ?
+                        data.sprites.other['official-artwork'].front_default
+                        :
+                        data.sprites.other.dream_world.front_default,
             name: data.name,
             tipos: data.types.map( type => type.type.name),
             id: data.id,
