@@ -17,8 +17,8 @@ router.get('/', async (req, res) => {
         var data2 = await axios.get(data1.data.next);
         var results2 = data2.data.results;
 
-        pokeUrl = [...results1, ...results2];
-        var pokeUrl = pokeUrl.map( pokemon => pokemon.url);
+        var pokeUrl = [...results1, ...results2];
+        pokeUrl = pokeUrl.map( pokemon => pokemon.url);
         
         
         var pokeResponses = await Promise.all(pokeUrl.map( pokemon => axios.get(pokemon)));
@@ -44,7 +44,7 @@ router.get('/', async (req, res) => {
         pokeDB = pokeDB.map( datos => {
             var pokemon = {
                 name: datos.nombre,
-                image: 'image.jpg',
+                image: 'https://w7.pngwing.com/pngs/248/960/png-transparent-pikachu-pokemon-go-silhouette-drawing-pikachu-dog-like-mammal-fictional-character-black.png',
                 strength: datos.fuerza,
                 weight: datos.peso,
                 height: datos.altura,

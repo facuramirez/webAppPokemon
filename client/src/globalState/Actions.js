@@ -176,6 +176,6 @@ export function searchPokemon(value){
                         
             dispatch({ type: POKEMON_SEARCH, payload: pokemon })
         })
-        .catch(error => console.error('No se pudo obtener el detalle del pokemon'))
+        .catch(error => alert('No se pudo obtener el detalle del pokemon'))
     }
 }

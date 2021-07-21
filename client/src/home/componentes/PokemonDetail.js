@@ -26,15 +26,15 @@ function PokemonDetail({ nameDet, detailData, detailPokemon }) {
                 <div className="containerData">
                     <div className="allData">
                         <img className="imageDetail" src={image} />
-                        <section className="sectionData">                
+                        <section className="sectionData">
                             <div className="dataDetail">
                                 <span className="prop">Name: </span><span className="value">{name}</span>
                                 <span className="prop">Id: </span><span className="value">{id}</span>
-                                <span className="prop">Tipo: </span><span>{tipos.map( (type, index) =>
+                                <span className="prop">Tipo: </span><span className="value">{tipos.map( (type, index) =>
                                     (tipos.length-1 !== index) ?
-                                        <span key={type} className="value">{type}, </span>
+                                        <span key={type} >{type}, </span>
                                     :   
-                                        <span key={type} className="value">{type}</span>
+                                        <span key={type} >{type}</span>
                                     )}</span>
                                 
 

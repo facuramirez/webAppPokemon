@@ -31,7 +31,7 @@ function CreatePokemon({modifyHome}) {
   const verifyName = (e) => {
     let value = e.target.value;
     let name = e.target.name;
-
+    
     if(!/^[A-Z]+$/i.test(value) || !value) {
       setError({...error, [name]: 'Error!'})
     } else {
@@ -50,7 +50,7 @@ function CreatePokemon({modifyHome}) {
       setError({...error, [name]: ''});
     }
     setInputs({...inputs, [name]: value});
-  
+      
   }
   
   const volver = () => {
@@ -95,6 +95,7 @@ function CreatePokemon({modifyHome}) {
   }
 
   const create = () => {
+      
       if(inputs.name && inputs.life && inputs.strength && inputs.defense && inputs.speed &&
         inputs.height && inputs.weigth && inputs.types.length > 0 &&
         !error.name && !error.life && !error.strength && !error.defense && !error.speed &&

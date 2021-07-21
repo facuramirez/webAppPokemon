@@ -4,14 +4,11 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('pokemon', {
-    /* ID: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-      //primaryKey: true
-    }, */
     nombre: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      set(value) { this.setDataValue('nombre', value.toLowerCase())
+      }
     },
     vida: {
       type: DataTypes.INTEGER

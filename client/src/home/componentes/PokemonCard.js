@@ -8,7 +8,7 @@ function PokemonCard({name, image, types, poke}) {
 
       <Link to={`/home/${name}`} className="containerPokemonCard">
         <h1>{name}</h1>
-        <img className="image" src={poke < 40 ? image:unknown}/>
+        <img className="image" src={image}/>
         {
           types.map( type => <h3 key={type}>{type}</h3>)
         }

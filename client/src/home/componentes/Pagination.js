@@ -1,8 +1,7 @@
 import '../css/pagination.css';
-import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
-function Pokemons({ allPokemons, pokemonsPerPage, totalPokemons, paginate}) {
+function Pokemons({ pokemonsPerPage, totalPokemons, paginate}) {
      
     const pageNumbers = [];
 
