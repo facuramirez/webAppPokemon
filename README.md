@@ -1,9 +1,12 @@
-<p align='left'>
-    <img src='https://static.wixstatic.com/media/85087f_0d84cbeaeb824fca8f7ff18d7c9eaafd~mv2.png/v1/fill/w_160,h_30,al_c,q_85,usm_0.66_1.00_0.01/Logo_completo_Color_1PNG.webp' </img>
-</p>
+# Proyecto Individual "Pokemon"
 
-# Individual Project - Henry Pokemon
+Este proyecto es parte de mi experiencia académica del bootcamp que realicé. En el mismo se plasman las tecnologías aprendidas como ser React, Redux, Node, Express, Postgres y Sequelize.
 
+El proyecto se refiere a una web-app de Pokemons en la cual se muestran todos los personajes de dicha caricatura. Los datos son consumidos de una api externa y otra interna, ya que tiene la opción de agregar nuevos pokemons. Otras funcionalidades con las que cuenta son la de buscar pokemons por nombre o ID, filtrados por tipos y ordenamiento alfabetico y otros criterios mas.
+
+
+
+<!-- 
 <p align="left">
   <img height="150" src="./pokemon.png" />
 </p>
@@ -159,4 +162,4 @@ __IMPORTANTE__: No está permitido utilizar los filtrados, ordenamientos y pagin
 #### Testing
 - [ ] Al menos tener un componente del frontend con sus tests respectivos
 - [ ] Al menos tener una ruta del backend con sus tests respectivos
-- [ ] Al menos tener un modelo de la base de datos con sus tests respectivos
+- [ ] Al menos tener un modelo de la base de datos con sus tests respectivos -->
