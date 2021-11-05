@@ -1,4 +1,4 @@
-import './css/landing.css';
+import Style from './css/landing.module.css';
 import { useEffect } from 'react';
 import pokeLanding from '../img/pokeLanding.png';
 import pokeTitulo from '../img/pokeTitulo.jpg';
@@ -14,13 +14,15 @@ function LandingPage({ getPokemons }) {
     document.body.style.backgroundColor = 'black';
     
   return (
-    <div className="containerLanding">
-        <div>  
-            <img className="imageLan" src={pokeLanding}  alt="img not found" />
-            <img className="imageLanTit" src={pokeTitulo}  alt="img not found" />
-            <Link to={'/home'}  >       
-                <h1 className="buttonLanding">Go Home</h1>
-            </Link>
+    <div className={`${Style.containerLanding} container-fluid`}>
+        <div className={`${Style.containerFlex} row`} >
+            <img className={`${Style.imageLan} col-5 mx-auto`} src={pokeLanding}  alt="img not found" />
+            <img className={`${Style.imageLanTit} col-5 mx-auto`} src={pokeTitulo}  alt="img not found" />
+            <div className={`${Style.buttonLanding} col-7 mx-auto text-center`} >
+              <Link to={'/home'} className="col-7 mx-auto">
+                  <h1>Go Home</h1>
+              </Link>
+            </div>
         </div>
     </div> 
     );

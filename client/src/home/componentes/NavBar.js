@@ -1,6 +1,6 @@
-import '../css/navBar.css';
-import pokeTitulo from '../../img/pokeTitulo.jpg';
-import pokeBola from '../../img/pokebola.jpg';
+import Style from '../css/navBar.module.css';
+import pokeTitulo from '../../img/pokeTitulo.png';
+import pokeBola from '../../img/pokebola.png';
 
 function NavBar() {
 
@@ -9,9 +9,9 @@ function NavBar() {
     } 
     
     return (
-      <div className="containerNavBar">
-          <img onClick={ () => refresh()} className="imageNavBar imageTitulo" src={pokeTitulo} />
-          <img className="imageNavBar imageBola" src={pokeBola} />    
+      <div className={`${Style.containerNavBar}`}>
+          <img onClick={ () => refresh()} className={`${Style.titleNav}`} src={pokeTitulo} />
+          <img className={`${Style.imageNav}`} src={pokeBola} />    
           
       </div> 
       );

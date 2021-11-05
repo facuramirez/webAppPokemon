@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import '../css/createPokemon.css';
+import Style from '../css/createPokemon.module.css';
 import { modifyHome } from '../../globalState/Actions.js';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import { BiChevronsRight } from 'react-icons/bi';
 
 function CreatePokemon({modifyHome}) {
-
+  
   let [inputs, setInputs] = useState({
     name: '',
     life: '',
@@ -54,7 +55,7 @@ function CreatePokemon({modifyHome}) {
   }
   
   const volver = () => {
-    window.location.reload();
+    modifyHome(false);
     window.scrollTo(0, 0);
   }
 
@@ -62,7 +63,7 @@ function CreatePokemon({modifyHome}) {
     border: "1px solid red",
     backgroundColor: "red",
     color: "white",
-    paddingTop: "6px",
+    padding: "0.1rem 0.5rem 0.1rem 0.5rem",
     borderRadius: "20px",
     fontSize: "15px",
     textAlign: "center",
@@ -154,99 +155,170 @@ function CreatePokemon({modifyHome}) {
         
         } else {
           alert('Faltan completar campos!');
-        }
-     
+        }     
     } 
 
-
-  
     return (
-      <div className="containerCreatePokemon">
-        <h1 id="titleCreate">CREATE NEW POKEMON</h1>
-                
-        <section className="sectionGrid sg1">
+      <div className={`${Style.containerCreatePokemon}`}>
+        <h1 id={`${Style.titleCreate}`}>CREATE NEW POKEMON</h1>
           
-          <label id="labelName" className="labelsSg1">NAME:</label>
-          <input style={error.name ? inputError:null} type="text" value={inputs.name} name="name" onChange={(e)=> verifyName(e)}/>
-          <span style={error.name ? spanError:null}>{error.name ? 'Only letters':' '} </span>
+        <div className={`${Style.flexInfo}`}>
+          <section className={`${Style.sectionGrid} ${Style.sg1}`}>
+            <div>
+              <label id={`${Style.labelName}`} className={`${Style.labelsSg1}`}>NAME:</label>
+              <input style={(inputs.name && error.name) ? inputError:null} type="text" value={inputs.name} name="name" onChange={(e)=> verifyName(e)}/>
+              <span style={(inputs.name && error.name) ? spanError:null}>{(inputs.name && error.name) ? 'Only letters':' '} </span>
+            </div>
 
-          <label className="labelsSg1">Life:</label>
-          <input style={error.life ? inputError:null} type="text" value={inputs.life} name="life" onChange={(e)=> verify(e)}/>
-          <span style={error.life ? spanError:null }>{error.life ? 'Only numbers':' '}</span>
+            <div>
+              <label className={`${Style.labelsSg1}`}>Life:</label>
+              <input style={(inputs.life && error.life) ? inputError:null} type="text" value={inputs.life} name="life" onChange={(e)=> verify(e)}/>
+              <span style={(inputs.life && error.life) ? spanError:null }>{(inputs.life && error.life) ? 'Only numbers':' '}</span>
+            </div>
 
-          <label className="labelsSg1">Strength:</label>
-          <input style={error.strength ? inputError:null} type="text" value={inputs.strength} name="strength" onChange={(e)=> verify(e)}/>
-          <span style={error.strength ? spanError:null }>{error.strength ? 'Only numbers':' '}</span>
+            <div>
+              <label className={`${Style.labelsSg1}`}>Strength:</label>
+              <input style={error.strength ? inputError:null} type="text" value={inputs.strength} name="strength" onChange={(e)=> verify(e)}/>
+              <span style={error.strength ? spanError:null }>{error.strength ? 'Only numbers':' '}</span>
+            </div>
 
-          <label className="labelsSg1">Defense:</label>
-          <input style={error.defense ? inputError:null} type="text" value={inputs.defense} name="defense" onChange={(e)=> verify(e)}/>
-          <span style={error.defense ? spanError:null }>{error.defense ? 'Only numbers':' '}</span> 
-
-          <label className="labelsSg1">Speed:</label>
-          <input style={error.speed ? inputError:null} type="text" value={inputs.speed} name="speed" onChange={(e)=> verify(e)}/>
-          <span style={error.speed ? spanError:null }>{error.speed ? 'Only numbers':' '}</span>
-
-          <label className="labelsSg1">Height</label>
-          <input style={error.height ? inputError:null} type="text" value={inputs.height} name="height" onChange={(e)=> verify(e)}/>
-          <span style={error.height ? spanError:null }>{error.height ? 'Only numbers':' '}</span>
-
-          <label className="labelsSg1">Weight:</label>
-          <input style={error.weigth ? inputError:null} type="text" value={inputs.weigth} name="weigth" onChange={(e)=> verify(e)}/>
-          <span style={error.weigth ? spanError:null }>{error.weigth ? 'Only numbers':' '}</span>
-
-        </section>
-        
-        <section className="sectionGrid sg2">
-          <div className="typesGrid">
-                <label id="titleTypes">Types:</label>
-                <input className="inputCheckBox input1" type="checkbox" name="bug" onClick={(e)=>checkear(e)}/>
-                <label className="typesLabels">Bug</label>
-                <input className="inputCheckBox input2" type="checkbox" name="dark" onClick={(e)=>checkear(e)}/>
-                <label className="typesLabels">Dark</label>
-                <input className="inputCheckBox input3" type="checkbox" name="dragon" onClick={(e)=>checkear(e)}/>
-                <label className="typesLabels">Dragon</label>
-                <input className="inputCheckBox input4" type="checkbox" name="electric" onClick={(e)=>checkear(e)}/>
-                <label className="typesLabels">Electric</label>
-                <input className="inputCheckBox input5" type="checkbox" name="fairy" onClick={(e)=>checkear(e)}/>
-                <label className="typesLabels">Fairy</label>
-                <input className="inputCheckBox input6" type="checkbox" name="fighting" onClick={(e)=>checkear(e)}/>
-                <label className="typesLabels">Fighting</label>
-                <input className="inputCheckBox input7" type="checkbox" name="fire" onClick={(e)=>checkear(e)}/>
-                <label className="typesLabels">Fire</label>
-                <input className="inputCheckBox input8" type="checkbox" name="flying" onClick={(e)=>checkear(e)}/>
-                <label className="typesLabels">Flying</label>
-                <input className="inputCheckBox input9" type="checkbox" name="ghost" onClick={(e)=>checkear(e)}/>
-                <label className="typesLabels">Ghost</label>
-                <input className="inputCheckBox input10" type="checkbox" name="grass" onClick={(e)=>checkear(e)}/>
-                <label className="typesLabels">Grass</label>
-                <input className="inputCheckBox input11" type="checkbox" name="ground" onClick={(e)=>checkear(e)}/>
-                <label className="typesLabels">Ground</label>
-                <input className="inputCheckBox input12" type="checkbox" name="ice" onClick={(e)=>checkear(e)}/>
-                <label className="typesLabels">Ice</label>
-                <input className="inputCheckBox input13" type="checkbox" name="normal" onClick={(e)=>checkear(e)}/>
-                <label className="typesLabels">Normal</label>
-                <input className="inputCheckBox input14" type="checkbox" name="poison" onClick={(e)=>checkear(e)}/>
-                <label className="typesLabels">Poison</label>
-                <input className="inputCheckBox input15" type="checkbox" name="psychic" onClick={(e)=>checkear(e)}/>
-                <label className="typesLabels">Psychic</label>
-                <input className="inputCheckBox input16" type="checkbox" name="rock" onClick={(e)=>checkear(e)}/>
-                <label className="typesLabels">Rock</label>
-                <input className="inputCheckBox input17" type="checkbox" name="shadow" onClick={(e)=>checkear(e)}/>
-                <label className="typesLabels">Shadow</label>
-                <input className="inputCheckBox input18" type="checkbox" name="steel" onClick={(e)=>checkear(e)}/>
-                <label className="typesLabels">Steel</label>
-                <input className="inputCheckBox input19" type="checkbox" name="unknown" onClick={(e)=>checkear(e)}/>
-                <label className="typesLabels">Unknown</label>
-                <input className="inputCheckBox input20" type="checkbox" name="water" onClick={(e)=>checkear(e)}/>
-                <label className="typesLabels">Water</label>
-              </div>
+            <div>
+              <label className={`${Style.labelsSg1}`}>Defense:</label>
+              <input style={error.defense ? inputError:null} type="text" value={inputs.defense} name="defense" onChange={(e)=> verify(e)}/>
+              <span style={error.defense ? spanError:null }>{error.defense ? 'Only numbers':' '}</span> 
+            </div>
             
-         </section>
+            <div>
+              <label className={`${Style.labelsSg1}`}>Speed:</label>
+              <input style={error.speed ? inputError:null} type="text" value={inputs.speed} name="speed" onChange={(e)=> verify(e)}/>
+              <span style={error.speed ? spanError:null }>{error.speed ? 'Only numbers':' '}</span>
+            </div>
 
-         <div className="buttonsGrid">
-            <button className="buttonsFilter buttonF1" value="back" onClick={()=> volver()}>Back</button>
-            <button className="buttonsFilter buttonF2" onClick={()=> create()}>CREATE</button>
-         </div>
+            <div>
+              <label className={`${Style.labelsSg1}`}>Height</label>
+              <input style={error.height ? inputError:null} type="text" value={inputs.height} name="height" onChange={(e)=> verify(e)}/>
+              <span style={error.height ? spanError:null }>{error.height ? 'Only numbers':' '}</span>
+            </div>
+
+            <div>
+              <label className={`${Style.labelsSg1}`}>Weight:</label>
+              <input style={error.weigth ? inputError:null} type="text" value={inputs.weigth} name="weigth" onChange={(e)=> verify(e)}/>
+              <span style={error.weigth ? spanError:null }>{error.weigth ? 'Only numbers':' '}</span>
+            </div>
+          </section>
+          
+          <section className={`${Style.sectionGrid} ${Style.sg2}`}>
+            <div className={`${Style.divTitleTypes} `}>
+              <label id={`${Style.titleTypes}`}><BiChevronsRight />Types:</label>
+            </div>
+            <div className={`${Style.divAllTypes}`}>
+              <div>
+                <input className={`${Style.inputCheckBox} ${Style.input1}`} type="checkbox" name="bug" onClick={(e)=>checkear(e)}/>
+                <label className={`${Style.typesLabels}`}>Bug</label>
+              </div>
+
+              <div>
+                <input className={`${Style.inputCheckBox} ${Style.input2}`} type="checkbox" name="dark" onClick={(e)=>checkear(e)}/>
+                <label className={`${Style.typesLabels}`}>Dark</label>
+              </div>
+
+              <div>
+                <input className={`${Style.inputCheckBox} ${Style.input3}`} type="checkbox" name="dragon" onClick={(e)=>checkear(e)}/>
+                <label className={`${Style.typesLabels}`}>Dragon</label>
+              </div>
+
+              <div>
+                <input className={`${Style.inputCheckBox} ${Style.input4}`} type="checkbox" name="electric" onClick={(e)=>checkear(e)}/>
+                <label className={`${Style.typesLabels}`}>Electric</label>
+              </div>
+
+              <div>
+                <input className={`${Style.inputCheckBox} ${Style.input5}`} type="checkbox" name="fairy" onClick={(e)=>checkear(e)}/>
+                <label className={`${Style.typesLabels}`}>Fairy</label>
+              </div>
+
+              <div>
+                <input className={`${Style.inputCheckBox} ${Style.input6}`} type="checkbox" name="fighting" onClick={(e)=>checkear(e)}/>
+                <label className={`${Style.typesLabels}`}>Fighting</label>
+              </div>
+
+              <div>
+                <input className={`${Style.inputCheckBox} ${Style.input7}`} type="checkbox" name="fire" onClick={(e)=>checkear(e)}/>
+                <label className={`${Style.typesLabels}`}>Fire</label>
+              </div>
+
+              <div>
+                <input className={`${Style.inputCheckBox} ${Style.input8}`} type="checkbox" name="flying" onClick={(e)=>checkear(e)}/>
+                <label className={`${Style.typesLabels}`}>Flying</label>
+              </div>
+              
+              <div>
+                <input className={`${Style.inputCheckBox} ${Style.input9}`} type="checkbox" name="ghost" onClick={(e)=>checkear(e)}/>
+                <label className={`${Style.typesLabels}`}>Ghost</label>
+              </div>
+
+              <div>
+                <input className={`${Style.inputCheckBox} ${Style.input10}`} type="checkbox" name="grass" onClick={(e)=>checkear(e)}/>
+                <label className={`${Style.typesLabels}`}>Grass</label>
+              </div>
+
+              <div>
+                <input className={`${Style.inputCheckBox} ${Style.input11}`} type="checkbox" name="ground" onClick={(e)=>checkear(e)}/>
+                <label className={`${Style.typesLabels}`}>Ground</label>
+              </div>
+
+              <div>
+                <input className={`${Style.inputCheckBox} ${Style.input12}`} type="checkbox" name="ice" onClick={(e)=>checkear(e)}/>
+                <label className={`${Style.typesLabels}`}>Ice</label>
+              </div>
+
+              <div>
+                <input className={`${Style.inputCheckBox} ${Style.input13}`} type="checkbox" name="normal" onClick={(e)=>checkear(e)}/>
+                <label className={`${Style.typesLabels}`}>Normal</label>
+              </div>
+
+              <div>
+                <input className={`${Style.inputCheckBox} ${Style.input14}`} type="checkbox" name="poison" onClick={(e)=>checkear(e)}/>
+                <label className={`${Style.typesLabels}`}>Poison</label>
+              </div>
+
+              <div>
+                <input className={`${Style.inputCheckBox} ${Style.input15}`} type="checkbox" name="psychic" onClick={(e)=>checkear(e)}/>
+                <label className={`${Style.typesLabels}`}>Psychic</label>
+              </div>
+
+              <div>
+                <input className={`${Style.inputCheckBox} ${Style.input16}`} type="checkbox" name="rock" onClick={(e)=>checkear(e)}/>
+                <label className={`${Style.typesLabels}`}>Rock</label>
+              </div>
+
+              <div>
+                <input className={`${Style.inputCheckBox} ${Style.input17}`} type="checkbox" name="shadow" onClick={(e)=>checkear(e)}/>
+                <label className={`${Style.typesLabels}`}>Shadow</label>
+              </div>
+
+              <div>
+                <input className={`${Style.inputCheckBox} ${Style.input18}`} type="checkbox" name="steel" onClick={(e)=>checkear(e)}/>
+                <label className={`${Style.typesLabels}`}>Steel</label>
+              </div>
+
+              <div>
+                <input className={`${Style.inputCheckBox} ${Style.input19}`} type="checkbox" name="unknown" onClick={(e)=>checkear(e)}/>
+                <label className={`${Style.typesLabels}`}>Unknown</label>
+              </div>
+
+              <div>
+                <input className={`${Style.inputCheckBox} ${Style.input20}`} type="checkbox" name="water" onClick={(e)=>checkear(e)}/>
+                <label className={`${Style.typesLabels}`}>Water</label>
+              </div>
+            </div>            
+          </section>
+        </div>
+
+        <div className={`${Style.buttons}`}>
+          <button className={`${Style.buttonsFilter} ${Style.buttonF1}`} value="back" onClick={()=> volver()}>Back</button>
+          <button className={`${Style.buttonsFilter} ${Style.buttonF2}`} onClick={()=> create()}>CREATE</button>
+        </div>
       </div>
     );
   }

@@ -1,17 +1,163 @@
-.containerMenuOptions{
-    width: 230px;
-    height: 510px;
+.containerMenuOptions{    
     border: 1px solid black;
     border-radius: 5px;
     padding: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 20px;
     box-shadow: 0px 1px 1px black, 1px 2px 1px black, 2px 3px 1px black, 3px 4px 1px black;
     background: linear-gradient(to bottom, #71d9ff 0%, rgba(58, 91, 170, 1) 50%, #0a759c 100%);
 }
 
-.menuOptions{
+.containerMenuOptions .optionsMenu1{
+    align-items: center !important;
+}
+
+.containerMenuOptions .optionsMenu{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.containerMenuOptions .optionsMenu #optMenu{
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 0px 1px 1px black, 1px 2px 1px black, 2px 3px 1px black, 3px 4px 1px black;
+    text-align: center;    
+    background-color: rgba(253, 204, 5, 1);
+    padding: 5px;    
+}
+
+.containerMenuOptions .optionsMenu .buttonsMenu{
+    background: white;
+    font-size: 1rem;
+    color: black;
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 0.2rem;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    transition: all 200ms;
+    height: 2.2rem;
+    width: 15%;
+}
+
+.containerMenuOptions .optionsMenu .buttonsMenu:hover{
+    transform: scale(1.1,1.1);
+    cursor: pointer;
+    box-shadow: 0px 0px 4px white;
+    border: 1px solid black;
+    background: rgba(255, 255, 255, 0.774);
+}
+
+.containerMenuOptions .optionsMenu .buttonsMenu:nth-child(3){
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.containerMenuOptions .optionsFilter{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.containerMenuOptions .optionsMenu .divSearch{
+    margin-left: 0.5rem;
+}
+
+.optionsMenu .subtitles{
+    /* background-color: rgba(253, 204, 5, 1); */
+    color: black;
+    /* border-radius: 10px; */
+    /* padding: 0.1rem;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem; */
+    margin-left: 0.5rem;
+}
+
+.optionsMenu #labelTypes{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.section3{
+    display: flex;
+    flex-flow: column wrap;
+    width: fit-content;
+}
+
+.buttonsSort{
+    justify-content: center;
+}
+/* 
+.buttonsSort .buttonF1{
+    margin-right: 0.7rem;
+}
+
+.buttonsSort .buttonF2{
+    margin-left: 0.7rem;
+} */
+
+
+.optionsMenu .buttonsFilter{
+    padding: 0.3rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    background: lightblue;
+    border-radius: 20px;
+    border: 1px solid lightblue;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.optionsMenu .buttonsFilter:hover{
+    border: 1px solid white;
+    box-shadow: 0px 0px 8px white;
+}
+
+.buttonF1,
+.buttonF2{
+    margin-top: 1rem;
+}
+
+input[type="radio"]:hover{
+    cursor: pointer;
+}
+
+input[type="text"]{
+    outline: none;
+    padding: 0.1rem 0.5rem 0.1rem 0.5rem;
+    border-radius: 1rem;
+    margin-top: 0.3rem;
+}
+
+/* 
+.containerMenuOptions .optionsMenu .buttonsMenuDisabled{
+    background-color: gray !important;
+    color: white;
+    border: 1px solid white;
+    cursor: not-allowed;
+    transition: all 200ms;
+} */
+
+
+
+@media (max-width: 1020px){
+    .containerMenuOptions .optionsMenu #optMenu{
+        width: 100%;
+    }
+    .containerMenuOptions .optionsMenu .buttonsMenu{
+        min-width: fit-content;
+        width: 20%;
+    }
+    .containerMenuOptions .optionsMenu .buttonsMenu:nth-child(n+2),
+    .containerMenuOptions .optionsMenu .divSearch{
+        margin-top: 1rem;
+    }
+
+}
+/* .menuOptions{
     height: 350px;
 }
 
@@ -28,18 +174,7 @@
     margin-top: 40px;
 }
 
-.menuOptions .buttonsMenu{
-    margin-top: 20px;
-    background: white;
-    color: black;
-    border: 1px solid white;
-    border-radius: 20px;
-    width: 80%;
-    margin-left: 20px;
-    margin-right: 20px;
-    padding: 5px;
-    transition: all 200ms;
-}
+
 
 .menuOptions .buttonsMenuDisabled{
     margin-top: 20px;
@@ -61,7 +196,6 @@
     box-shadow: 0px 0px 4px white;
     border: 1px solid black;
     background: rgba(255, 255, 255, 0.774);
-    /* transform: scale(1.20); */
 }
 
 .menuOptions .imageMenu{
@@ -72,26 +206,8 @@
 .menuOptions #divImg{
     text-align: center;
     padding-top: 25px;
-    
-    /* animation-duration: 500ms;
-    animation-name: slidein;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;     */
 }
 
-
-/* 
-@keyframes slidein {
-    from {
-      margin-left: 25%;
-      width: 20%;
-    }
-  
-    to {
-      margin-left: 30%;
-      width: 20%;
-    }
-  } */
 
 .menuOptions .subtitles{
     background-color: rgba(253, 204, 5, 1);
@@ -219,4 +335,4 @@
 .labelSort{
     text-align: center;
     width: 85%;
-}
+} */

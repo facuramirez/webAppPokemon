@@ -9,45 +9,39 @@
 .containerLanding{
     overflow-x: hidden;
     text-align: center;
-    padding-bottom: 30px;
 }
 
-.containerLanding a{
-    display: block;
-    margin: 0px auto;
-    font-size: 12px;
+.containerLanding .containerFlex{
+    flex-flow: column wrap;
+    justify-content: space-evenly;
+    min-height: 100vh;
+}
+.imageLan{
+    width: 35rem;
+}
+
+.buttonLanding a{
+    text-decoration: none;
+}
+.buttonLanding h1{
     cursor: pointer;
     background: #ccc;
-    width: 130px;
+    width: fit-content;
+    margin: 0px auto;
+    font-size: 1.5rem;
     border-radius: 15px;
-    text-decoration: none;
-    margin-top: 15px;
     text-shadow: 1px 1px black, 2px 1px gray, 4px 1px #ccc, 5px 1px white;
     font-family: sans-serif;
-    padding: 1px;
+    padding: 0.2rem;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
     box-shadow: 0px 0px 8px lightblue;
     color: black;
     opacity: 0.5;
 }
 
-.containerLanding a:hover{
+.buttonLanding h1:hover{
     box-shadow: 0px 0px 15px lightblue;
     opacity: 0.8;
 }
-
-.imageLan{
-    width: 60%;
-}
-
-.imageLanTit{
-    display: block;
-    width: 400px;
-    margin: 0px auto;
-    background-color: black;
-}
-
-
-
-
-
 

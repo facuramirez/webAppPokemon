@@ -1,0 +1,69 @@
+.containerData{
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.containerData .allData{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.containerData .allData .imageDetail{
+    width: 20rem;    
+}
+
+.containerData .allData .sectionData .dataDetail{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    width: 25rem;
+    text-align: center;
+    margin: 0px auto;
+}
+
+.containerData .allData .sectionData .dataDetail span{
+    width: 35%;
+    font-size: 1.2rem;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.containerData .allData .sectionData .dataDetail span:nth-child(n+3){
+    margin-top: 0.5rem;
+}
+
+.containerData .allData .sectionData .dataDetail span:nth-child(2n+1){
+    font-weight: bold;
+}
+
+.containerData .allData .sectionData .dataDetail span:nth-child(6) span{
+    font-weight: normal;
+}
+
+
+.containerData #buttonPokemons{
+    background: linear-gradient(to bottom, #71d9ff 0%, #0a759c 100%);
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 2rem;
+    margin: 0px auto;
+    margin-top: 2rem;
+    cursor: pointer;
+    border: 1px solid black;
+    padding: 0.3rem 0.8rem 0.3rem 0.8rem;
+    width: fit-content;
+    color: black;
+}
+
+.containerData #buttonPokemons:hover{
+    border: 1px solid white;
+    box-shadow: 0px 0px 8px white;
+}
+
+@media (max-width: 894px){
+    .containerPokemonDetail .containerData .allData .sectionData{
+        margin-top: 2rem;
+    }
+}

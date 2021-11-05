@@ -9,15 +9,14 @@
 .containerPagination .ulPagination .elements{
     display: inline-flex;
     justify-content: space-around;
-    padding: 3px;
+    padding: 0.1rem 0.8rem 0.1rem 0.8rem;
     border: 1px solid black;
     border-radius: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 0.8rem;
+    margin-right: 0.8rem;
     font-size: 20px;
-    width: 30px;
     background: linear-gradient(to bottom, #71d9ff 0%, rgba(58, 91, 170, 1) 50%, #0a759c 100%);
-    transition: all 200ms;
+    transition: all 300ms;
 }
 
 .containerPagination .ulPagination .elements:hover{

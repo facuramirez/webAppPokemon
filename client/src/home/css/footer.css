@@ -1,19 +1,22 @@
 .containerFooter{
     display: flex;
     justify-content: space-around;
+    align-items: center;
     width: 100%;
     margin-top: 120px;
     width: 100%;
-    height: 200px;
+    height: 350px;
     /* background-color: rgb(31, 31, 31); */
     /* background: linear-gradient(to bottom, rgb(85, 85, 85) 0%, rgb(31, 31, 31) 100%); */
-    background-color: rgb(63, 63, 63);
+    background-image: radial-gradient(circle at center center, rgba(33,33,33,0),rgb(33,33,33)),repeating-linear-gradient(135deg, rgb(33,33,33) 0px, rgb(33,33,33) 1px,transparent 1px, transparent 4px),repeating-linear-gradient(45deg, rgb(56,56,56) 0px, rgb(56,56,56) 5px,transparent 5px, transparent 6px),linear-gradient(90deg, rgb(33,33,33),rgb(33,33,33));
     box-shadow: 0px 0px 100px black inset;
+    padding-bottom: 50px;
+    padding-top: 20px;
 }
 
 
 .containerFooter .imageFooter{
-    width: 170px;
+    width: 200px;
     margin-top: 25px;
 }
 
@@ -44,10 +47,14 @@
     padding: 4px;
 }
 
-.containerFooter .itemsFooter .itemF2{
-    text-align: center;
+.containerFooter .itemsFooter .itemF1{
+    flex-basis: 25%;
 }
 
+
+.containerFooter .itemsFooter{
+    text-align: center;
+}
 
 .containerFooter .informationSpans{
     color: white;
@@ -71,4 +78,67 @@
 .containerFooter .ig, 
 .containerFooter .ph{
     margin-top: 3px;
+}
+
+.author{
+    text-align: center;
+    padding: 2px;
+    background: black;
+    color: white;
+}
+
+.contactSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+    margin-left: 120px;
+    background-image: linear-gradient(135deg, rgba(107, 107, 107,0.06) 0%, rgba(107, 107, 107,0.06) 50%,rgba(202, 202, 202,0.06) 50%, rgba(202, 202, 202,0.06) 100%),linear-gradient(90deg, rgb(20,20,20),rgb(20,20,20)); background-size: 30px 30px;
+    padding: 30px;
+    border-radius: 20px;
+    margin-top: 15px;
+}
+
+.contactSection h3{
+    font-size: 25px;
+    margin-bottom: 15px;
+    background: black;
+    padding: 7px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 20px;
+}
+
+.contactSection a{
+    text-decoration: none;
+    margin-top: 5px;
+    color: white;
+    background: black;
+    padding: 4px;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 20px;
+}
+
+.contactSection a:hover{
+    color: gray;
+}
+
+.wp{
+    color: green;
+}
+
+.lk{
+    color: blue;
+}
+
+.git{
+    color:gray;
+}
+
+.wp,
+.lk,
+.git{
+    font-size: 30px;
 }

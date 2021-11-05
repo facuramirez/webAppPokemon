@@ -1,12 +1,12 @@
-import '../css/pokemons.css';
-import '../css/pokemonDetail.css';
+import Style from '../css/pokemonDetail.module.css';
 import { useEffect } from 'react';
 import pokeBola from '../../img/pokebolaBg.png';
 import { detailData, clearData } from '../../globalState/Actions.js'
 import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 function PokemonDetail({ nameDet, detailData, detailPokemon }) {
-    
+    let history = useHistory();
     useEffect( async () => {
         clearData();
         detailData(nameDet);
@@ -15,45 +15,60 @@ function PokemonDetail({ nameDet, detailData, detailPokemon }) {
     var { name, image, tipos, id, life, strength, defense, speed, height, weight } = detailPokemon;
     
     const backPokemons = () => {
-        window.location.href = "http://localhost:3000/home";
+        history.push('/home');
         window.scrollTo(0, 0);
     }
    
     return (
-        <div className="containerPokemonDetail">
+        <div className={`${Style.containerPokemonDetail}`}>
             {
                 (detailPokemon.image) ? 
-                <div className="containerData">
-                    <div className="allData">
-                        <img className="imageDetail" src={image} />
-                        <section className="sectionData">
-                            <div className="dataDetail">
-                                <span className="prop">Name: </span><span className="value">{name}</span>
-                                <span className="prop">Id: </span><span className="value">{id}</span>
-                                <span className="prop">Tipo: </span><span className="value">{tipos.map( (type, index) =>
-                                    (tipos.length-1 !== index) ?
-                                        <span key={type} >{type}, </span>
-                                    :   
-                                        <span key={type} >{type}</span>
-                                    )}</span>
-                                
+                <div className={`${Style.containerData}`}>
+                    <div className={`${Style.allData}`}>
+                        <img className={`${Style.imageDetail}`} src={image} />
+                        <section className={`${Style.sectionData}`}>
+                            <div className={`${Style.dataDetail}`}>
+                                <span className={`${Style.prop}`}>Name: </span>
+                                <span className={`${Style.value}`}>{name}</span>
 
-                                <span className="prop">Life: </span><span className="value">{life}</span>
-                                <span className="prop">Strength: </span><span className="value">{strength}</span>
-                                <span className="prop">Defense: </span><span className="value">{defense}</span>
-                                <span className="prop">Speed: </span><span className="value">{speed}</span>
-                                <span className="prop">Height: </span><span className="value">{height}</span>
-                                <span className="prop">Weight: </span><span className="value">{weight}</span>
+                                <span className={`${Style.prop}`}>Id: </span>
+                                <span className={`${Style.value}`}>{id}</span>
+                                
+                                <span className={`${Style.prop}`}>Tipo: </span>
+                                <span className={`${Style.value}`}>{tipos.map( (type, index) =>
+                                    (tipos.length-1 !== index) ?
+                                        <span className={``} key={type} >{type}, </span>
+                                    :   
+                                        <span className={``} key={type} >{type}</span>
+                                    )}</span>
+
+                                <span className={`${Style.prop}`}>Life: </span>
+                                <span className={`${Style.value}`}>{life}</span>
+                                
+                                <span className={`${Style.prop}`}>Strength: </span>
+                                <span className={`${Style.value}`}>{strength}</span>
+                                
+                                <span className={`${Style.prop}`}>Defense: </span>
+                                <span className={`${Style.value}`}>{defense}</span>
+                                
+                                <span className={`${Style.prop}`}>Speed: </span>
+                                <span className={`${Style.value}`}>{speed}</span>
+                                
+                                <span className={`${Style.prop}`}>Height: </span>
+                                <span className={`${Style.value}`}>{height}</span>
+
+                                <span className={`${Style.prop}`}>Weight: </span>
+                                <span className={`${Style.value}`}>{weight}</span>
                                     
                             </div>
                         </section>
                     </div>
-                    <input type="button" id="buttonPokemons" value="Back" onClick={ () => backPokemons()}/>
+                    <input type="button" className={``} id={`${Style.buttonPokemons}`} value="Back" onClick={ () => backPokemons()}/>
                 </div>
                 :
-                (<div id="containerLoading">
-                    <img id="pokeBolaImg" src= {pokeBola}/>
-                    <h1 id="loading">Cargando...</h1>
+                (<div id={`${Style.containerLoading}`}>
+                    <img id={`${Style.pokeBolaImg}`} src= {pokeBola}/>
+                    <h1 id={`${Style.loading}`}>Cargando...</h1>
                 </div>)
             }
             

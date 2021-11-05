@@ -120,7 +120,7 @@ export function sortPokemons(allPokemons, radio1, radio2){
             }
         )}
     }
-    console.log(allPokemons);
+    
     // allPokemons = allPokemons.pop();
     // console.log('pop', allPokemons);
     // allPokemons = [allPokemons]

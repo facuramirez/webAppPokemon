@@ -1,4 +1,4 @@
-import '../css/pokemons.css';
+import Style from '../css/pokemons.module.css';
 import { useState } from 'react';
 import PokemonDetail from './PokemonDetail.js'
 import PokemonCard from './PokemonCard';
@@ -23,7 +23,7 @@ function Pokemons({allPokemons, detail}) {
     
     
     return (
-      <div className="containerPokemons">
+      <div className={`${Style.containerPokemons}`}>
          
           {
             (allPokemons.length > 0 && allPokemons[0] !== 'Vacio' && !detail) && 
@@ -34,14 +34,14 @@ function Pokemons({allPokemons, detail}) {
             />
           }
 
-          <section className="pokemonDetail">
+          <section className={`${Style.pokemonDetail}`}>
             {
               (detail) && <PokemonDetail nameDet={detail} 
               /> 
             }
           </section>
 
-          <section className="flexPokemons">
+          <section className={`${Style.flexPokemons}`}>
           {          
             (allPokemons.length > 0 && allPokemons[0] !== 'Vacio' && !detail) && pokemonsPage.map( (pokemon) => 
             <PokemonCard 
@@ -51,24 +51,22 @@ function Pokemons({allPokemons, detail}) {
               types={pokemon.types} 
               poke={contador++}/> )
           }
-          </section>            
+          </section>
           {
             (allPokemons.length === 0) &&
-            (<div id="containerLoading">
-                <img id="pokeBolaImg" src= {pokeBola}/>
-                <h1 id="loading">Cargando...</h1>
+            (<div id={`${Style.containerLoading}`}>
+                <img id={`${Style.pokeBolaImg}`} src= {pokeBola}/>
+                <h1 id={`${Style.loading}`}>Cargando...</h1>
             </div>)
           }
           {
             (allPokemons[0] === 'Vacio') &&
             (
-              <div id="containerLoading">
-                <h1 className="vacio" id="loading">No hay ningun Pokemon creado</h1>
+              <div id={`${Style.containerLoading}`}>
+                <h1 className={`${Style.vacio}`} id={`${Style.loading}`}>No hay ningun Pokemon creado</h1>
               </div>
             )
-          }
-          
-                
+          }                
       </div> 
       );
   }
