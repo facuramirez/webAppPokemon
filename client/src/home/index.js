@@ -45,7 +45,7 @@ function HomePage({createPokemon, allPokemons, getPokemons, pokemonName, detailP
         {!createPokemon ? (<section className="pokeHome"><Pokemons/></section>):
         (<section className="createPokeHome"><CreatePokemon /></section>)
         } */}
-        {/* <footer className="footerHome"><Footer /></footer> */}
+        <footer className="footerHome"><Footer /></footer>
               
       </div> 
       );

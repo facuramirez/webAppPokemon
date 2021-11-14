@@ -8,13 +8,13 @@ function SearchBar({ searchPokemon, getPokemons }) {
     const search = (e) => {
         let value = document.querySelector('.searchBar').value;
         if(!value) return getPokemons();
-        searchPokemon(value);         
+        searchPokemon(value);
     }
 
     return (
       <div className={`${Style.containerSearchBar}`}>
-          <input className={`${Style.searchBar} searchBar`} onChange={ (e) => e.target.value} type="text" placeholder="Search by ID or Name..."/>
-          <h1 onClick={ (e) => search(e)} id={`${Style.containerLupa}`}> <FcSearch className={`${Style.lupa}`}/> </h1>
+            <input className={`${Style.searchBar} searchBar`} onChange={ (e) => e.target.value} type="text" placeholder="Search by ID or Name..."/>
+            <h1 onClick={ (e) => search(e)} id={`${Style.containerLupa}`}> <FcSearch className={`${Style.lupa}`}/> </h1>
       </div> 
       );
   }

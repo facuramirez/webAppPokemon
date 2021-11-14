@@ -111,7 +111,7 @@ function MenuOptions( {modifyHome, filterPokemons, clearPokemons, createPokemon,
                onClick={(e)=> filterButton(e)}>Filter</button>
             <button className={`${Style.buttonsMenu} ${buttonsFS ? 'd-none':null}`} id={`${Style.sort}`} value="sort" onClick={(e)=> filterButton(e)}>Sort</button>
             <button className={`${Style.buttonsMenu} ${buttonsFS ? 'd-none':null}`} id={`create`} onClick={(e)=> showCreate(e)}>Create Pokemon</button>
-            <div className={`${Style.divSearch}`}>
+            <div className={`${Style.divSearch} ${buttonsFS ? 'd-none':null}`}>
               <SearchBar />
               </div>
             {/* <div id="divImg"><img className="imageMenu" src={ashPikachu} /> </div>     */}
@@ -270,7 +270,7 @@ function MenuOptions( {modifyHome, filterPokemons, clearPokemons, createPokemon,
                       <input type="radio" className="radio radioSort r2" name="choice2" value="Altura" />
                       <label className="subtitles labelSort" htmlFor="Altura">Heigth</label>
                     </div>
-                  </div>                
+                  </div>
               </section>
               <section className={`${Style.section3} ${Style.buttonsSort} col-12 col-lg-4 mt-1 text-center`}>
                 <button className={`${Style.buttonsFilter} ${Style.buttonF1}`} value="back" onClick={(e)=> filterButton(e)}>Back</button>

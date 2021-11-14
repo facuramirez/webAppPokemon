@@ -1,4 +1,4 @@
-import '../css/footer.css';
+import Style from '../css/footer.module.css';
 import pokebolaAbierta from '../../img/pokebolaAbierta.png'
 import henryLogo from '../../img/henryLogo.jpg'
 import pokeApp from '../../img/pokeApp2.png'
@@ -11,31 +11,38 @@ function Footer({allPokemons}) {
    
     return (
       <div>
-        <div className="containerFooter">
-          <div className="itemsFooter itemF1">
-            <img src={pokebolaAbierta} className="imageFooter" />
+        <div className={`${Style.containerFooter}`}>
+          <div className={`${Style.itemsFooter} ${Style.itemF1}`}>
+            <img src={pokebolaAbierta} className={`${Style.imageFooter}`} />
           </div>
 
-          <div className="itemsFooter itemF2">
-            <section className="contactSection">
+          <div className={`${Style.itemsFooter} ${Style.itemF2}`}>
+            <section className={`${Style.contactSection}`}>
               <h3>CONTACTO:</h3>
-              <FaWhatsappSquare className="wp"/>
-              <a href="https://wa.me/543764227220" target="_blank">+543764227220</a>
-              <br/>
-              <FaLinkedin className="lk"/>
-              <a href="https://www.linkedin.com/in/facundoramirezok" target="_blank">/facundoramirezok</a>
-              <br/>
-              <GoMarkGithub className="git"/>
-              <a href="https://github.com/facuramirez" target="_blank">/facuramirez</a>
+              <div className={`${Style.info}`}>
+                <div>
+                  <FaWhatsappSquare className={`${Style.wp}`} />
+                  <a href="https://wa.me/543764227220" target="_blank">+543764227220</a>
+                </div>
+                <div>
+                  <FaLinkedin className={`${Style.lk}`} />
+                  <a href="https://www.linkedin.com/in/facundoramirezok" target="_blank">/facundoramirezok</a>
+                </div>
+                <div>
+                  <GoMarkGithub className={`${Style.git}`} />
+                  <a href="https://github.com/facuramirez" target="_blank">/facuramirez</a>
+                </div>
+              </div>
             </section>
           </div>
 
-          <div className="itemsFooter containerPokeApp">
-          <img src={pokeApp} className="pokeApp" />
+          <div className={`${Style.itemsFooter} ${Style.containerPokeApp}`}>
+            <img src={pokeApp} className={`${Style.pokeApp}`} />
           </div>
+
         </div>
 
-        <div className="author">
+        <div className={`${Style.author}`}>
           Desarrollado por Facundo Ramírez &copy;
         </div>
       </div> 

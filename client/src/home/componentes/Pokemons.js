@@ -1,12 +1,14 @@
 import Style from '../css/pokemons.module.css';
 import { useState } from 'react';
-import PokemonDetail from './PokemonDetail.js'
+import PokemonDetail from './PokemonDetail.js';
 import PokemonCard from './PokemonCard';
 import pokeBola from '../../img/pokebolaBg.png';
 import Pagination from './Pagination.js';
 import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { getPokemons } from '../../globalState/Actions';
 
-function Pokemons({allPokemons, detail}) {
+function Pokemons({allPokemons, detail, getPokemons}) {
     var contador = 0;
     
     var [currentPage, setCurrentPage] = useState(1);
@@ -21,10 +23,13 @@ function Pokemons({allPokemons, detail}) {
       setCurrentPage(pageNumber)
     }
     
+    const backPokemons = () => {
+      getPokemons();
+      window.scrollTo(0, 0);
+    }
     
     return (
       <div className={`${Style.containerPokemons}`}>
-         
           {
             (allPokemons.length > 0 && allPokemons[0] !== 'Vacio' && !detail) && 
             <Pagination 
@@ -66,7 +71,15 @@ function Pokemons({allPokemons, detail}) {
                 <h1 className={`${Style.vacio}`} id={`${Style.loading}`}>No hay ningun Pokemon creado</h1>
               </div>
             )
-          }                
+          }
+          {
+            (allPokemons.length === 1) ?
+              <div className={`${Style.buttons}`}>
+                <input type="button" className={``} id={`${Style.buttonPokemons}`} value="Back" onClick={ () => backPokemons()}/>
+              </div>
+              :
+              null
+          }      
       </div> 
       );
   }
@@ -74,4 +87,4 @@ function Pokemons({allPokemons, detail}) {
   
   const mapStateToProps = ({allPokemons, detail }) => ({allPokemons, detail});
   
-  export default connect(mapStateToProps)(Pokemons);
+  export default connect(mapStateToProps, { getPokemons })(Pokemons);

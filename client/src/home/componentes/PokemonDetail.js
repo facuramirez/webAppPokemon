@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom';
 
 function PokemonDetail({ nameDet, detailData, detailPokemon }) {
     let history = useHistory();
+    
     useEffect( async () => {
         clearData();
         detailData(nameDet);
@@ -14,10 +15,15 @@ function PokemonDetail({ nameDet, detailData, detailPokemon }) {
       
     var { name, image, tipos, id, life, strength, defense, speed, height, weight } = detailPokemon;
     
-    const backPokemons = () => {
-        history.push('/home');
-        window.scrollTo(0, 0);
-    }
+const backPokemons = () => {
+    history.push('/home');
+    window.scrollTo(0, 0);
+}
+
+// const volver = () => {
+//     modifyHome(false);
+//     window.scrollTo(0, 0);
+// }
    
     return (
         <div className={`${Style.containerPokemonDetail}`}>
@@ -63,11 +69,15 @@ function PokemonDetail({ nameDet, detailData, detailPokemon }) {
                             </div>
                         </section>
                     </div>
-                    <input type="button" className={``} id={`${Style.buttonPokemons}`} value="Back" onClick={ () => backPokemons()}/>
+                    <div className={`${Style.buttons}`}>
+                        <input type="button" className={``} id={`${Style.buttonPokemons}`} value="Back" onClick={ () => backPokemons()}/>
+                    </div>                    
                 </div>
                 :
                 (<div id={`${Style.containerLoading}`}>
-                    <img id={`${Style.pokeBolaImg}`} src= {pokeBola}/>
+                    <div className="text-center">
+                        <img id={`${Style.pokeBolaImg}`} src= {pokeBola}/>
+                    </div>
                     <h1 id={`${Style.loading}`}>Cargando...</h1>
                 </div>)
             }

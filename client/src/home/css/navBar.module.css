@@ -34,7 +34,7 @@
 
 
 
-.imageNav2{
+.imageNav{
     animation-name: rotate-gear;
     animation-duration: 2s;
     animation-iteration-count: infinite; /*girando infinitamente */
